@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+
+<!--  <script type="text/javascript" src="https://staging.acs-build.ru/assets/app.js"></script>-->
+  <link rel="stylesheet" href="https://staging.acs-build.ru/assets/app.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+
+    @tailwind  base;
+    @tailwind  components;
+    @tailwind  utilities;
+
+    #floor {
+      @apply h-screen w-full bg-zinc-300
+    }
+
+    #floor canvas {
+      @apply h-screen w-full border-2
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="app nav-collapsed">
+  <div class="side-container">
+    <div class="menu-btn" onclick="collapseNavigation(this)">
+      <span></span>
+    </div>
+    <div class="menu-user">
+      <div class="personal-user">
+        КООРДИНАТОР
+        <select class="w-full my-3 p-2 bg-[rgb(81,91,105)]" onchange="javascript:handleSelect(this)">
+          <option  value="http://staging.acs-build.ru/login/store-group/5">АДМИНИСТРАТОР</option>
+          <option  selected  value="http://staging.acs-build.ru/login/store-group/3">КООРДИНАТОР</option>
+          <option  value="http://staging.acs-build.ru/login/store-group/4">СТРОЙКОНТРОЛЬ</option>
+          <option  value="http://staging.acs-build.ru/login/store-group/1">ИНВЕСТОР</option>
+          <option  value="http://staging.acs-build.ru/login/store-group/7">НАЧАЛЬНИК УЧАСТКА</option>
+        </select>
+
+        <script type="text/javascript">
+          function handleSelect(elm) { window.location = elm.value; }
+        </script>
+        <div>Проект</div>
+        <select class="w-full my-3 p-2 bg-[rgb(81,91,105)]" onchange="window.location = this.value">
+          <option  selected  value="http://staging.acs-build.ru/login/store-project-sidebar/34">ЖК Первый</option>
+        </select>
+        <div>Администратор И.О.</div>
+        <div>ЖК Первый</div>
+        <div class="logout">
+          <form class="form_logout" method="post" action="https://staging.acs-build.ru/logout">
+            <input type="hidden" name="_token" value="mvMeJpv67Pi0fP0OC4djZ8MPcNVtOuyz1FlPdAGT">                            <input class="sm-btn btn-wh" type="submit" value="Выйти">
+          </form>
+        </div>
+      </div>
+
+      <ul class="menu-box">
+
+        <li><a href="https://staging.acs-build.ru/coordinator/profile" class="menu-box-item">Пульт</a></li>
+        <li><a href="https://staging.acs-build.ru/coordinator/configurator" class="menu-box-item">Конфигуратор планов</a></li>
+        <li><a href="https://staging.acs-build.ru/coordinator/calendar" class="menu-box-item">Производственный календарь</a></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="main-container-content">
+
+      <div class="gcl-4 absolute z-10 right-2 w-1/2">
+        <div class="btn btn-gr" data-size="[3309,2339]" onclick="printFloor(event)">1</div>
+        <div class="btn btn-gr" data-size="[1920,951]" onclick="printFloor(event)">2</div>
+        <div class="btn btn-gr" data-size="[3000,2119]" onclick="printFloor(event)">3</div>
+        <div class="btn btn-gr" data-size="[3510,2483]" onclick="printFloor(event)">4</div>
+      </div>
+      <div id="floor"></div>
+      <script type="module" src="./main.js"></script>
+      <style type="text/css">@import "node_modules/ol/ol.css";</style>
+    </div>
+  </div>
+</div>
+</body>
+</html>

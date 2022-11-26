@@ -1,0 +1,17 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "run": "cd D:\\develope\\plan\\map && npm start",
+    "build_1": "cd D:\\develope\\plan\\map && npm run build"
+  },
+  "devDependencies": {
+    "vite": "^3.0.9"
+  },
+  "dependencies": {
+    "ol": "latest"
+  }
+}
